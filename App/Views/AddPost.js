@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
     },
     saveButton: {
         borderWidth: 1,
-        borderColor: '#007BFF',
-        backgroundColor: '#007BFF',
+        borderColor: '#4CAF50',
+        backgroundColor: '#4CAF50',
         padding: 15,
         margin: 5
     },
