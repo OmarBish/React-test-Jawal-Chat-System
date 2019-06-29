@@ -47,12 +47,20 @@ export default class SecondScreen extends Component {
     }, 500);
   }
   componentDidMount() {
-    const posts = Axios.get('http://sadekj.herokuapp.com/posts/10').then((res) => {
-      let posts = res.data;
-      console.log(res.data)
+    Axios.get('http://sadekj.herokuapp.com/posts/10').then((res) => {
+        let posts = res.data;
+        console.log(res.data)
 
-      this.setState({ posts: posts });
-    });
+        this.setState({ posts: posts });
+      });
+    setInterval(() => {
+      Axios.get('http://sadekj.herokuapp.com/posts/10').then((res) => {
+        let posts = res.data;
+        console.log(res.data)
+
+        this.setState({ posts: posts });
+      });
+    }, 1000)
 
   }
 
@@ -80,21 +88,21 @@ export default class SecondScreen extends Component {
             keyExtractor={item => item.email}
           />
           <View >
-        <TouchableOpacity
-          onPress={this._onPress}
-          style={styles.button}
-          activeOpacity={1}>
-          <Image style={styles.image} source={addImg} />
-        </TouchableOpacity>
-        <Animated.View
-          style={[styles.circle, { transform: [{ scale: changeScale }] }]}
-        />
-      </View>     
+            <TouchableOpacity
+              onPress={this._onPress}
+              style={styles.button}
+              activeOpacity={1}>
+              <Image style={styles.image} source={addImg} />
+            </TouchableOpacity>
+            <Animated.View
+              style={[styles.circle, { transform: [{ scale: changeScale }] }]}
+            />
+          </View>
         </View>
-        
+
       </View>
 
-      
+
 
     );
   }
