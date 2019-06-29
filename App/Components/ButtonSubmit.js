@@ -62,6 +62,7 @@ export default class ButtonSubmit extends Component {
                 duration: 200,
                 easing: Easing.linear,
               }).start();
+              this.props.invalidInput();
             }
             
           }).catch((err)=>{

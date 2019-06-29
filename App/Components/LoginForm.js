@@ -11,12 +11,9 @@ import {
 } from 'react-native';
 
 import UserInput from './UserInput';
-import ButtonSubmit from './ButtonSubmit';
-import SignupSection from './BlanckSpace';
 
 import usernameImg from '../images/username.png';
 import passwordImg from '../images/password.png';
-import eyeImg from '../images/eye_black.png';
 
 export default class Form extends Component {
   constructor(props) {
@@ -32,11 +29,19 @@ export default class Form extends Component {
 
   handleNameChange(username) {
     this.setState({ username: username });
-    this.props.formChange({ username: username });
+    let model = {
+      username:username,
+      password:this.state.password
+    }
+    this.props.formChange(model);
   }
   handlePasswordChange(password) {
     this.setState({ password: password });
-    this.props.formChange({ password: password });
+    let model = {
+      username:this.state.username,
+      password:password
+    }
+    this.props.formChange(model);
   }
   render() {
     return (
@@ -64,8 +69,6 @@ export default class Form extends Component {
   }
 }
 
-const DEVICE_WIDTH = Dimensions.get('window').width;
-const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   container: {
