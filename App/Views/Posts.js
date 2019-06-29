@@ -24,7 +24,7 @@ export default class SecondScreen extends Component {
 
     this.state = {
       isLoading: false,
-      post: []
+      posts: []
     };
 
     this._onPress = this._onPress.bind(this);

@@ -44,10 +44,7 @@ export default class ButtonSubmit extends Component {
       easing: Easing.linear,
     }).start();
 
-    let model = {
-      username:'OmarBish',
-      password:'123qwe'
-    };
+    let model = this.props.auth;
     axios.get('http://sadekj.herokuapp.com/signIn/'+JSON.stringify(model))
           .then((res)=>{
             if(res.data.id != 0){

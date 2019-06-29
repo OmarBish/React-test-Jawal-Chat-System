@@ -5,9 +5,6 @@ import Login from './Views/Login';
 import Posts from './Views/Posts';
 import addPost from './Views/AddPost'
 
-var store = {
-
-}
 export default class main extends Component {
     render() {
         return (

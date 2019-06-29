@@ -8,13 +8,24 @@ import BlanckSpace from '../Components/BlanckSpace';
 import Wallpaper from '../Components/Wallpaper';
 
 export default class LoginScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username:'',
+      password:''
+    };
+  }
+  handleFormChange=(change)=>{
+    this.setState(change);
+    console.log(this.state)
+  }
   render() {
     return (
       <Wallpaper style={styles.background}>
          <Logo />
-         <Form />
+         <Form formChange={this.handleFormChange}/>
          <BlanckSpace />
-         <ButtonSubmit />
+         <ButtonSubmit auth={this.state}/>
       </Wallpaper>
 
     );

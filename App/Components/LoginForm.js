@@ -27,15 +27,16 @@ export default class Form extends Component {
       password:''
     };
     this.handleNameChange = this.handleNameChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
 
   handleNameChange(username) {
-    console.log(username)
     this.setState({ username: username });
+    this.props.formChange({ username: username });
   }
   handlePasswordChange(password) {
-    console.log(password)
     this.setState({ password: password });
+    this.props.formChange({ password: password });
   }
   render() {
     return (
